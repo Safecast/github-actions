@@ -18,4 +18,4 @@ outputs:
     description: 'The name of the uploaded bundle'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://safecast/github-actions-bundle-application:v1'
