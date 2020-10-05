@@ -1,0 +1,23 @@
+name: "Obtain Certificate"
+description: "Obtains Let's Encrypt certificates using Route53 for DNS challenge and S3 for storage"
+inputs:
+  s3_uri:
+    description: "The S3 URI to use for cert storage"
+    required: true
+  accept_tos:
+    description: "By setting this flag to true you indicate that you accept the current Let's Encrypt terms of service."
+    required: true
+  email:
+    description: "Email used for registration and recovery contact."
+    required: true
+  domains:
+    description: "Domains to process, one per line"
+    required: true
+  server:
+    description: "CA hostname"
+    required: true
+    default: "https://acme-v02.api.letsencrypt.org/directory"
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
