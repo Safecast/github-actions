@@ -4,7 +4,7 @@
 
 Something like this:
 
-```
+```yaml
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -17,6 +17,9 @@ Something like this:
             s3_uri: s3://safecastops-us-west-2/lego-dev
             accept_tos: true
             email: mat@safecast.org
+            domains: |
+              *.safecast.org
+              *.safecast.cc
 ```
 
 ## Development
