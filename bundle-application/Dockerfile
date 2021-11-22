@@ -1,8 +1,9 @@
-FROM python:3.8.5
+FROM python:3.10
 
-COPY requirements.txt /
-RUN pip install --upgrade pip &&\
-    pip install --use-feature=2020-resolver -r /requirements.txt
+WORKDIR /usr/src/app
 
-COPY entrypoint.py /
-ENTRYPOINT ["python", "/entrypoint.py"]
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY entrypoint.py .
+ENTRYPOINT ["python", "./entrypoint.py"]

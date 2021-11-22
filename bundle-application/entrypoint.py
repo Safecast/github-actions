@@ -11,6 +11,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 
 
 def replace_docker_images():
+    if 'INPUT_CONTAINER_IMAGES' not in os.environ:
+        return
+
     image_replacements = json.loads(os.environ['INPUT_CONTAINER_IMAGES'])
 
     with open('Dockerrun.aws.json') as f:
