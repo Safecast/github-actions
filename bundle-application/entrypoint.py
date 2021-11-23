@@ -11,7 +11,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 
 
 def replace_docker_images():
-    if 'INPUT_CONTAINER_IMAGES' not in os.environ:
+    container_images = os.environ.get('INPUT_CONTAINER_IMAGES', '')
+    if not container_images:
         return
 
     image_replacements = json.loads(os.environ['INPUT_CONTAINER_IMAGES'])
@@ -28,7 +29,8 @@ def replace_docker_images():
 
 
 def add_authentication_key(bucket):
-    if 'INPUT_AUTHENTICATION_KEY' not in os.environ:
+    authentication_key = os.environ.get('INPUT_AUTHENTICATION_KEY', '')
+    if not authentication_key:
         return
 
     with open('Dockerrun.aws.json') as f:
