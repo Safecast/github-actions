@@ -6,4 +6,4 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY entrypoint.py .
-ENTRYPOINT ["python", "./entrypoint.py"]
+ENTRYPOINT ["python", "/usr/src/app/entrypoint.py"]
